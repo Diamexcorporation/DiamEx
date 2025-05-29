@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Il mio account - DiamEx</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <ul class="menu-left">
+        <li><a href="compra.html">Compra</a></li>
+        <li><a href="vendi.html">Vendi</a></li>
+      </ul>
+      <ul class="menu-right">
+        <li><a href="account.html" class="active">Il mio account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1>Il mio account</h1>
+      <p>Gestisci i tuoi dati e verifica la tua identità per aumentare la credibilità.</p>
+    </section>
+
+    <section class="account-info">
+      <form action="#" method="post" enctype="multipart/form-data" class="account-form">
+
+        <label for="email">Email (facoltativa)</label>
+        <input type="email" id="email" name="email" placeholder="Inserisci la tua email" />
+
+        <label for="telefono">Numero di telefono (facoltativo)</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Inserisci il numero di telefono" />
+
+        <label for="documento-identita">Carica documento di identità (per verifica KYC)</label>
+        <input type="file" id="documento-identita" name="documento-identita" accept=".pdf,.jpg,.jpeg,.png" required />
+
+        <button type="submit">Invia verifica</button>
+      </form>
+    </section>
+
+    <section class="my-listings">
+      <h2>I miei annunci pubblicati (demo)</h2>
+      <ul>
+        <li>Diamante Brillante 1 carato - Certificazione GIA - Prezzo: €5,000</li>
+        <li>Diamante Princess 0.75 carati - Certificazione HRD - Prezzo: €3,800</li>
+        <!-- Qui sarà mostrata la lista reale in futuro -->
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="footer-email">supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
+    <p class="footer-lab">Laboratorio certificatore partner (non specificato)</p>
+  </footer>
+
+</body>
+</html>
