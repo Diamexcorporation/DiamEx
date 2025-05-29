@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vendi - DiamEx</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <ul class="menu-left">
+        <li><a href="compra.html">Compra</a></li>
+        <li><a href="vendi.html" class="active">Vendi</a></li>
+      </ul>
+      <ul class="menu-right">
+        <li><a href="account.html">Il mio account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1>Vendi il tuo diamante certificato</h1>
+      <p>Inserisci i dettagli e carica la documentazione richiesta per la verifica.</p>
+    </section>
+
+    <form action="#" method="post" enctype="multipart/form-data" class="sell-form">
+      <label for="nome">Nome del diamante</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="descrizione">Descrizione</label>
+      <textarea id="descrizione" name="descrizione" rows="4" required></textarea>
+
+      <label for="prezzo">Prezzo (€)</label>
+      <input type="number" id="prezzo" name="prezzo" step="0.01" required />
+
+      <label for="certificazione">Certificazione (GIA, HRD, IGI)</label>
+      <select id="certificazione" name="certificazione" required>
+        <option value="">Seleziona</option>
+        <option value="GIA">GIA</option>
+        <option value="HRD">HRD</option>
+        <option value="IGI">IGI</option>
+      </select>
+
+      <label for="immagini">Carica immagini del diamante</label>
+      <input type="file" id="immagini" name="immagini[]" accept="image/*" multiple required />
+
+      <label for="documento-certificazione">Carica documento di certificazione</label>
+      <input type="file" id="documento-certificazione" name="documento-certificazione" accept=".pdf,.jpg,.jpeg,.png" required />
+
+      <label for="documento-identita">Carica documento di identità per verifica</label>
+      <input type="file" id="documento-identita" name="documento-identita" accept=".pdf,.jpg,.jpeg,.png" required />
+
+      <p class="rules">
+        Pubblicando un annuncio, accetti le nostre <a href="policy.html">condizioni di pubblicazione</a>.
+        Solo diamanti certificati saranno accettati.
+      </p>
+
+      <button type="submit">Pubblica annuncio</button>
+    </form>
+
+  </main>
+
+  <footer>
+    <p class="footer-email">supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
+    <p class="footer-lab">Laboratorio certificatore partner (non specificato)</p>
+  </footer>
+
+</body>
+</html>
