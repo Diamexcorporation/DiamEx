@@ -1,166 +1,166 @@
-/* Reset base */
-* {
+/* Font base */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Sfondo marmo bianco */
-body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/marble.png');
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a0a0a;
+  color: white;
+  background-image: url('../img/marmo-nero-lucido.jpg'); /* Assicurati che l'immagine sia presente in /img/ */
   background-size: cover;
-  background-position: center;
-  color: #222;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-/* Header & logo */
+/* Header */
 header {
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.logo {
-  max-height: 80px;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
+  margin-top: 10px;
 }
 
-/* Menu principale */
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 30px;
+.logo {
+  width: 180px;
+  height: auto;
 }
 
-.menu li a {
+/* Navigazione account in alto a destra */
+.account-nav {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+}
+
+.account-nav a {
+  color: white;
   text-decoration: none;
-  color: #000;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 16px;
-  transition: color 0.3s ease;
+  border: 1px solid white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
-.menu li a:hover {
-  color: #666;
+.account-nav a:hover {
+  background-color: white;
+  color: black;
 }
 
-/* Hero centrale */
-.hero {
+/* Slogan homepage */
+.slogan {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 60px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}
+
+/* Menu pulsanti homepage */
+.menu-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 80vh;
-  text-align: center;
-  padding: 0 20px;
+  gap: 30px;
+  margin-top: 50px;
+  flex-wrap: wrap;
 }
 
-.hero h1 {
-  font-size: 2.2em;
-  max-width: 800px;
-  margin: auto;
-  color: #000;
+.menu-button {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 14px 28px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+/* Form */
+form input,
+form button,
+form label {
+  font-size: 16px;
+  font-family: inherit;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #e0e0e0;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  font-size: 13px;
-  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 100px;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Sezioni Compra / Vendi */
-.section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+/* Link nel footer */
+footer a {
+  color: #ccc;
+  text-decoration: underline;
 }
 
-.section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 28px;
-}
-
-.card {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.card img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 10px;
-}
-
-/* Form Vendi / Profilo */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  max-width: 500px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="file"],
-textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 15px;
-}
-
-button {
-  padding: 12px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #444;
+footer a:hover {
+  color: white;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  header {
+  .menu-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
-  .menu {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
+  .account-nav {
+    top: 10px;
+    right: 20px;
   }
 
-  .hero h1 {
-    font-size: 1.6em;
+  .slogan {
+    font-size: 24px;
   }
 
-  form {
-    width: 90%;
+  .logo {
+    width: 130px;
   }
 }
