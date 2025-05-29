@@ -1,72 +1,54 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vendi - DiamEx</title>
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vendi - DiamEx</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<header>
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="compra.html">Compra</a>
+    <a href="vendi.html" class="active">Vendi</a>
+    <a href="account.html" style="float:right;">Il mio account</a>
+  </nav>
+</header>
 
-  <header>
-    <nav class="navbar">
-      <ul class="menu-left">
-        <li><a href="compra.html">Compra</a></li>
-        <li><a href="vendi.html" class="active">Vendi</a></li>
-      </ul>
-      <ul class="menu-right">
-        <li><a href="account.html">Il mio account</a></li>
-      </ul>
-    </nav>
-  </header>
+<main class="container">
+  <h1>Vendi il tuo Diamante Certificato</h1>
+  <p>Inserisci i dati del diamante e allega i documenti necessari per la verifica e la pubblicazione dell’annuncio.</p>
 
-  <main>
-    <section class="page-header">
-      <h1>Vendi il tuo diamante certificato</h1>
-      <p>Inserisci i dettagli e carica la documentazione richiesta per la verifica.</p>
-    </section>
+  <form action="#" method="POST" enctype="multipart/form-data" id="sellForm">
+    <label for="title">Titolo annuncio:</label><br/>
+    <input type="text" id="title" name="title" required /><br/>
 
-    <form action="#" method="post" enctype="multipart/form-data" class="sell-form">
-      <label for="nome">Nome del diamante</label>
-      <input type="text" id="nome" name="nome" required />
+    <label for="description">Descrizione:</label><br/>
+    <textarea id="description" name="description" rows="4" required></textarea><br/>
 
-      <label for="descrizione">Descrizione</label>
-      <textarea id="descrizione" name="descrizione" rows="4" required></textarea>
+    <label for="carats">Carati:</label><br/>
+    <input type="number" id="carats" name="carats" step="0.01" required /><br/>
 
-      <label for="prezzo">Prezzo (€)</label>
-      <input type="number" id="prezzo" name="prezzo" step="0.01" required />
+    <label for="certificate">Carica certificato (PDF/JPG):</label><br/>
+    <input type="file" id="certificate" name="certificate" accept=".pdf,.jpg,.jpeg,.png" required /><br/>
 
-      <label for="certificazione">Certificazione (GIA, HRD, IGI)</label>
-      <select id="certificazione" name="certificazione" required>
-        <option value="">Seleziona</option>
-        <option value="GIA">GIA</option>
-        <option value="HRD">HRD</option>
-        <option value="IGI">IGI</option>
-      </select>
+    <label for="diamondImage">Carica immagine diamante:</label><br/>
+    <input type="file" id="diamondImage" name="diamondImage" accept="image/*" required /><br/>
 
-      <label for="immagini">Carica immagini del diamante</label>
-      <input type="file" id="immagini" name="immagini[]" accept="image/*" multiple required />
+    <label for="idDocument">Carica documento d’identità (per verifica):</label><br/>
+    <input type="file" id="idDocument" name="idDocument" accept=".pdf,.jpg,.jpeg,.png" required /><br/>
 
-      <label for="documento-certificazione">Carica documento di certificazione</label>
-      <input type="file" id="documento-certificazione" name="documento-certificazione" accept=".pdf,.jpg,.jpeg,.png" required />
+    <p><small>Regole per pubblicazione annunci: solo diamanti certificati da GIA, HRD, IGI. Annunci non conformi saranno rimossi.</small></p>
 
-      <label for="documento-identita">Carica documento di identità per verifica</label>
-      <input type="file" id="documento-identita" name="documento-identita" accept=".pdf,.jpg,.jpeg,.png" required />
+    <button type="submit">Invia annuncio</button>
+  </form>
+</main>
 
-      <p class="rules">
-        Pubblicando un annuncio, accetti le nostre <a href="policy.html">condizioni di pubblicazione</a>.
-        Solo diamanti certificati saranno accettati.
-      </p>
-
-      <button type="submit">Pubblica annuncio</button>
-    </form>
-
-  </main>
-
-  <footer>
-    <p class="footer-email">supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
-    <p class="footer-lab">Laboratorio certificatore partner (non specificato)</p>
-  </footer>
+<footer>
+  <p>Email supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
+  <small>Laboratorio certificatore partner</small>
+</footer>
 
 </body>
 </html>
