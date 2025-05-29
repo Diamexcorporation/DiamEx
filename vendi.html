@@ -1,53 +1,36 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vendi - DiamEx</title>
-<link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendi | DiamEx</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <header>
-  <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="compra.html">Compra</a>
-    <a href="vendi.html" class="active">Vendi</a>
-    <a href="account.html" style="float:right;">Il mio account</a>
+  <nav class="account-nav">
+    <a href="account.html">Il mio Account</a>
   </nav>
+  <div class="logo-container">
+    <a href="index.html"><img src="img/logo.png" alt="Logo DiamEx" class="logo"></a>
+  </div>
 </header>
 
-<main class="container">
-  <h1>Vendi il tuo Diamante Certificato</h1>
-  <p>Inserisci i dati del diamante e allega i documenti necessari per la verifica e la pubblicazione dell’annuncio.</p>
-
-  <form action="#" method="POST" enctype="multipart/form-data" id="sellForm">
-    <label for="title">Titolo annuncio:</label><br/>
-    <input type="text" id="title" name="title" required /><br/>
-
-    <label for="description">Descrizione:</label><br/>
-    <textarea id="description" name="description" rows="4" required></textarea><br/>
-
-    <label for="carats">Carati:</label><br/>
-    <input type="number" id="carats" name="carats" step="0.01" required /><br/>
-
-    <label for="certificate">Carica certificato (PDF/JPG):</label><br/>
-    <input type="file" id="certificate" name="certificate" accept=".pdf,.jpg,.jpeg,.png" required /><br/>
-
-    <label for="diamondImage">Carica immagine diamante:</label><br/>
-    <input type="file" id="diamondImage" name="diamondImage" accept="image/*" required /><br/>
-
-    <label for="idDocument">Carica documento d’identità (per verifica):</label><br/>
-    <input type="file" id="idDocument" name="idDocument" accept=".pdf,.jpg,.jpeg,.png" required /><br/>
-
-    <p><small>Regole per pubblicazione annunci: solo diamanti certificati da GIA, HRD, IGI. Annunci non conformi saranno rimossi.</small></p>
-
-    <button type="submit">Invia annuncio</button>
+<main>
+  <h1 class="slogan">Inserisci il tuo diamante in vendita</h1>
+  <form style="max-width:600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; text-align: left; color: white;">
+    <label>Nome del diamante <input type="text" required></label>
+    <label>Carica immagini <input type="file" accept="image/*" multiple></label>
+    <label>Carica certificato (PDF) <input type="file" accept=".pdf" required></label>
+    <label>Carica documento identità (PDF o JPG) <input type="file" accept=".pdf,.jpg,.jpeg" required></label>
+    <button type="submit" class="menu-button">Pubblica Annuncio</button>
   </form>
 </main>
 
 <footer>
-  <p>Email supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
-  <small>Laboratorio certificatore partner</small>
+  <p>Supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
+  <p>In collaborazione con laboratorio certificatore</p>
 </footer>
 
 </body>
