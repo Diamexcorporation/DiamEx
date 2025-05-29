@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Il mio account - DiamEx</title>
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Il mio account - DiamEx</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<header>
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="compra.html">Compra</a>
+    <a href="vendi.html">Vendi</a>
+    <a href="account.html" class="active" style="float:right;">Il mio account</a>
+  </nav>
+</header>
 
-  <header>
-    <nav class="navbar">
-      <ul class="menu-left">
-        <li><a href="compra.html">Compra</a></li>
-        <li><a href="vendi.html">Vendi</a></li>
-      </ul>
-      <ul class="menu-right">
-        <li><a href="account.html" class="active">Il mio account</a></li>
-      </ul>
-    </nav>
-  </header>
+<main class="container">
+  <h1>Benvenuto nel tuo Account</h1>
+  
+  <section id="user-info">
+    <h2>Dati Personali</h2>
+    <form id="userDataForm" method="POST">
+      <label for="email">Email (facoltativa):</label><br/>
+      <input type="email" id="email" name="email" placeholder="esempio@mail.com" /><br/>
 
-  <main>
-    <section class="page-header">
-      <h1>Il mio account</h1>
-      <p>Gestisci i tuoi dati e verifica la tua identità per aumentare la credibilità.</p>
-    </section>
+      <label for="phone">Telefono (facoltativo):</label><br/>
+      <input type="tel" id="phone" name="phone" placeholder="+39 333 1234567" /><br/>
 
-    <section class="account-info">
-      <form action="#" method="post" enctype="multipart/form-data" class="account-form">
+      <button type="submit">Aggiorna dati</button>
+    </form>
+  </section>
 
-        <label for="email">Email (facoltativa)</label>
-        <input type="email" id="email" name="email" placeholder="Inserisci la tua email" />
+  <section id="kyc-upload">
+    <h2>Verifica Identità (KYC)</h2>
+    <form id="kycForm" method="POST" enctype="multipart/form-data">
+      <label for="idUpload">Carica documento di identità:</label><br/>
+      <input type="file" id="idUpload" name="idUpload" accept=".pdf,.jpg,.jpeg,.png" required /><br/>
+      <button type="submit">Invia documento</button>
+    </form>
+  </section>
 
-        <label for="telefono">Numero di telefono (facoltativo)</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Inserisci il numero di telefono" />
+  <section id="my-listings">
+    <h2>I miei annunci pubblicati</h2>
+    <p><em>Questa è una demo, in futuro vedrai qui gli annunci che hai pubblicato.</em></p>
+    <ul>
+      <li>Diamante 1 - 1.2 carati - In vendita</li>
+      <li>Diamante 2 - 0.8 carati - Venduto</li>
+    </ul>
+  </section>
+</main>
 
-        <label for="documento-identita">Carica documento di identità (per verifica KYC)</label>
-        <input type="file" id="documento-identita" name="documento-identita" accept=".pdf,.jpg,.jpeg,.png" required />
-
-        <button type="submit">Invia verifica</button>
-      </form>
-    </section>
-
-    <section class="my-listings">
-      <h2>I miei annunci pubblicati (demo)</h2>
-      <ul>
-        <li>Diamante Brillante 1 carato - Certificazione GIA - Prezzo: €5,000</li>
-        <li>Diamante Princess 0.75 carati - Certificazione HRD - Prezzo: €3,800</li>
-        <!-- Qui sarà mostrata la lista reale in futuro -->
-      </ul>
-    </section>
-
-  </main>
-
-  <footer>
-    <p class="footer-email">supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
-    <p class="footer-lab">Laboratorio certificatore partner (non specificato)</p>
-  </footer>
-
+<footer>
+  <p>Email supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
+  <small>Laboratorio certificatore partner</small>
+</footer>
 </body>
 </html>
