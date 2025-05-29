@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Compra - DiamEx</title>
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compra - DiamEx</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<header>
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="compra.html" class="active">Compra</a>
+    <a href="vendi.html">Vendi</a>
+    <a href="account.html" style="float:right;">Il mio account</a>
+  </nav>
+</header>
 
-  <header>
-    <nav class="navbar">
-      <ul class="menu-left">
-        <li><a href="compra.html" class="active">Compra</a></li>
-        <li><a href="vendi.html">Vendi</a></li>
-      </ul>
-      <ul class="menu-right">
-        <li><a href="account.html">Il mio account</a></li>
-      </ul>
-    </nav>
-  </header>
+<main class="container">
+  <h1>Compra Diamanti Certificati</h1>
+  <p>Benvenuto nella nostra vetrina di diamanti certificati. Tutti i diamanti sono accompagnati da certificazioni GIA, HRD, o IGI.</p>
+  
+  <section class="diamond-list">
+    <!-- Qui inseriremo in futuro la lista dinamica, per ora placeholder -->
+    <div class="diamond-card">
+      <img src="img/diamond1.jpg" alt="Diamante 1" />
+      <h3>Diamante 1 - 1.2 carati</h3>
+      <p>Certificazione: GIA</p>
+      <p>Prezzo: € 5.000</p>
+      <button>Acquista</button>
+    </div>
+    <div class="diamond-card">
+      <img src="img/diamond2.jpg" alt="Diamante 2" />
+      <h3>Diamante 2 - 0.8 carati</h3>
+      <p>Certificazione: HRD</p>
+      <p>Prezzo: € 3.200</p>
+      <button>Acquista</button>
+    </div>
+    <!-- Aggiungi altre schede qui -->
+  </section>
 
-  <main>
-    <section class="page-header">
-      <h1>Compra diamanti certificati</h1>
-      <p>Solo diamanti con certificazione GIA, HRD o IGI, garantiti e sicuri.</p>
-    </section>
+  <section class="guarantees">
+    <h2>Garanzie e Certificazioni</h2>
+    <ul>
+      <li>Tutti i diamanti sono certificati da laboratori riconosciuti (GIA, HRD, IGI)</li>
+      <li>Protezione acquirente garantita</li>
+      <li>Servizio clienti dedicato per ogni acquisto</li>
+    </ul>
+  </section>
+</main>
 
-    <section class="diamond-list">
-      <!-- Esempio di diamantini demo, sostituire con database reale -->
-      <article class="diamond-item">
-        <img src="img/diamond1.jpg" alt="Diamante 1" />
-        <h3>Diamante Brillante 1 carato</h3>
-        <p>Certificazione: GIA</p>
-        <p>Prezzo: €5,000</p>
-        <button>Acquista</button>
-      </article>
-
-      <article class="diamond-item">
-        <img src="img/diamond2.jpg" alt="Diamante 2" />
-        <h3>Diamante Princess 0.75 carati</h3>
-        <p>Certificazione: HRD</p>
-        <p>Prezzo: €3,800</p>
-        <button>Acquista</button>
-      </article>
-
-      <!-- Aggiungi altri diamantini demo qui -->
-    </section>
-
-  </main>
-
-  <footer>
-    <p class="footer-email">supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
-    <p class="footer-lab">Laboratorio certificatore partner (non specificato)</p>
-  </footer>
-
+<footer>
+  <p>Email supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
+  <small>Laboratorio certificatore partner</small>
+</footer>
 </body>
 </html>
