@@ -91,3 +91,72 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+/* Stile per le pagine compra, vendi, account */
+
+.page-header {
+  text-align: center;
+  margin: 40px auto 30px auto;
+  max-width: 700px;
+  color: #333;
+}
+
+.diamond-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+}
+
+.diamond-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 280px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.diamond-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.diamond-item h3 {
+  margin: 15px 0 5px 0;
+  font-size: 1.1em;
+  color: #111;
+}
+
+.diamond-item p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 0.95em;
+}
+
+.diamond-item button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.diamond-item button:hover {
+  background-color: #0056b3;
+}
+
+.sell-form,
+.account-form {
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
