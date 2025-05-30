@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DiamEx - Compravendita Diamanti Certificati</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://www.transparenttextures.com/patterns/black-linen.png') repeat;
+      background-color: #000;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header img {
+      width: 150px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #111;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .translate {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background-color: #111;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #2e86de;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #2167c5;
+    }
+
+    .toggle {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      padding: 50px 20px 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="translate">
+    <select onchange="translatePage(this.value)">
+      <option value="it">🇮🇹 IT</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
+  </div>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Diamond_icon.svg/1024px-Diamond_icon.svg.png" alt="DiamEx Logo" />
+  </header>
+
+  <nav>
+    <a href="#">Compra</a>
+    <a href="#">Vendi</a>
+    <a href="#account">Il mio Account</a>
+  </nav>
+
+  <div class="container" id="account">
+    <form id="authForm" action="auth.php" method="post" enctype="multipart/form-data">
+      <div class="form-group" id="fullnameGroup">
+        <input type="text" name="fullname" placeholder="Nome Completo" />
+      </div>
+
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+
+      <div class="form-group">
+        <input type="password" name="password" placeholder="Password" required />
+      </div>
+
+      <div class="form-group" id="docGroup">
+        <label style="margin-bottom:5px;display:block;">Carica Documento (PDF o JPG)</label>
+        <input type="file" name="document" accept=".pdf,.jpg,.jpeg,.png" />
+      </div>
+
+      <input type="hidden" name="mode" id="modeInput" value="register" />
+
+      <button type="submit" id="submitBtn">Registrati</button>
+
+      <div class="toggle">
+        <a href="#" onclick="toggleMode()">Hai già un account? Accedi</a>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <p>Supporto: <a href="mailto:diamexcorporation@libero.it">diamexcorporation@libero.it</a></p>
+    <p style="margin-top: 5px;">Partner laboratorio certificatore (non specificato)</p>
+  </footer>
+
+  <script>
+    let mode = "register";
+
+    function toggleMode() {
+      mode = mode === "register" ? "login" : "register";
+      document.getElementById("modeInput").value = mode;
+      document.getElementById("submitBtn").innerText = mode === "register" ? "Registrati" : "Accedi";
+      document.querySelector(".toggle a").innerText = mode === "register" ? "Hai già un account? Accedi" : "Non hai un account? Registrati";
+      document.getElementById("fullnameGroup").classList.toggle("hidden", mode === "login");
+      document.getElementById("docGroup").classList.toggle("hidden", mode === "login");
+    }
+
+    function translatePage(lang) {
+      const translations = {
+        it: {
+          compra: "Compra",
+          vendi: "Vendi",
+          account: "Il mio Account",
+          nome: "Nome Completo",
+          password: "Password",
+          documento: "Carica Documento (PDF o JPG)",
+          registrati: "Registrati",
+          accedi: "Accedi",
+          supporto: "Supporto",
+        },
+        en: {
+          compra: "Buy",
+          vendi: "Sell",
+          account: "My Account",
+          nome: "Full Name",
+          password: "Password",
+          documento: "Upload Document (PDF or JPG)",
+          registrati: "Register",
+          accedi: "Login",
+          supporto: "Support",
+        },
+      };
+
+      const t = translations[lang];
+
+      document.querySelectorAll("nav a")[0].innerText = t.compra;
+      document.querySelectorAll("nav a")[1].innerText = t.vendi;
+      document.querySelectorAll("nav a")[2].innerText = t.account;
+      document.querySelector("input[name='fullname']").placeholder = t.nome;
+      document.querySelector("input[name='password']").placeholder = t.password;
+      document.querySelector("label").innerText = t.documento;
+      document.getElementById("submitBtn").innerText = mode === "register" ? t.registrati : t.accedi;
+      document.querySelector("footer p").innerHTML = `${t.supporto}: <a href="mailto:diamexcorporation@libero.it">diamexcorporation@libero.it</a>`;
+    }
+  </script>
+</body>
+</html>
