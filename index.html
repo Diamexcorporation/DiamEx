@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DiamEx</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: radial-gradient(#000000, #1a1a1a);
+      color: white;
+      text-align: center;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 30px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      width: 80px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    h1 {
+      font-size: 36px;
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+    }
+    nav a {
+      color: #00aaff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    nav a:hover {
+      color: #ffffff;
+    }
+    section {
+      display: none;
+      padding: 60px 20px;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .note, .supporto {
+      font-size: 14px;
+      color: #bbbbbb;
+      margin-top: 20px;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 4px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .diamanti {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 500px;
+      margin-inline: auto;
+    }
+    .diamante {
+      border-bottom: 1px solid #444;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Crystal_icon.png/600px-Crystal_icon.png" alt="DiamEx Logo" class="logo">
+    <h1>DiamEx</h1>
+    <nav>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('compra')">Compra</a></li>
+        <li><a onclick="showPage('vendi')">Vendi</a></li>
+        <li><a onclick="showPage('account')">Il mio Account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="active">
+      <h2>La prima piattaforma italiana per diamanti certificati</h2>
+      <p class="note">In collaborazione con laboratorio certificatore</p>
+      <p class="supporto">Supporto: <a href="mailto:lorenzo.orelli10@gmail.com">lorenzo.orelli10@gmail.com</a></p>
+    </section>
+
+    <section id="compra">
+      <h2>Compra diamanti certificati</h2>
+      <form id="filtro">
+        <select id="cert">
+          <option value="">-- Certificazione --</option>
+          <option value="GIA">GIA</option>
+          <option value="HRD">HRD</option>
+          <option value="IGI">IGI</option>
+        </select>
+        <select id="carati">
+          <option value="">-- Carati --</option>
+          <option value="0.5">0.5+</option>
+          <option value="1">1.0+</option>
+          <option value="1.5">1.5+</option>
+        </select>
+        <button type="button" onclick="filtraDiamanti()">Filtra</button>
+      </form>
+      <div class="diamanti" id="risultati">
+        <!-- Diamanti mostrati dinamicamente -->
+      </div>
+    </section>
+
+    <section id="vendi">
+      <h2>Vendi i tuoi diamanti</h2>
+      <p>Compila il modulo per pubblicare un annuncio (funzionalità in arrivo).</p>
+    </section>
+
+    <section id="account">
+      <h2>Il mio Account</h2>
+      <form>
+        <input type="text" placeholder="Nome utente" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <button type="submit">Accedi</button>
+      </form>
+
+      <h3 style="margin-top: 40px;">Verifica Identità</h3>
+      <form>
+        <input type="file" accept=".pdf,.jpg,.png" required><br>
+        <button type="submit">Carica documento</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const diamanti = [
+      { carati: 0.5, cert: "GIA", descr: "GIA 0.5ct brillante" },
+      { carati: 1.2, cert: "IGI", descr: "IGI 1.2ct taglio princess" },
+      { carati: 1.6, cert: "HRD", descr: "HRD 1.6ct taglio ovale" },
+      { carati: 0.7, cert: "GIA", descr: "GIA 0.7ct colore D" }
+    ];
+
+    function showPage(id) {
+      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    function filtraDiamanti() {
+      const cert = document.getElementById("cert").value;
+      const carati = parseFloat(document.getElementById("carati").value);
+      const risultati = document.getElementById("risultati");
+      risultati.innerHTML = "";
+
+      const filtrati = diamanti.filter(d => {
+        return (!cert || d.cert === cert) && (!carati || d.carati >= carati);
+      });
+
+      if (filtrati.length === 0) {
+        risultati.innerHTML = "<p>Nessun diamante trovato.</p>";
+      } else {
+        filtrati.forEach(d => {
+          risultati.innerHTML += `<div class="diamante">${d.descr}</div>`;
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>
