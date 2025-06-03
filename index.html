@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiamEx - Diamond Exchange</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    header img {
+      width: 100px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin: 10px 0;
+      color: #00BFFF;
+    }
+    nav {
+      text-align: center;
+      background-color: rgba(0,0,0,0.8);
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1em;
+      margin: 0 20px;
+      cursor: pointer;
+    }
+    nav button:hover {
+      color: #00BFFF;
+    }
+    .content {
+      padding: 30px;
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    input[type="text"], input[type="password"], input[type="file"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #333;
+      background-color: #111;
+      color: white;
+    }
+    button.submit-btn {
+      padding: 10px 20px;
+      background-color: #00BFFF;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    footer {
+      font-size: 0.8em;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+      color: #aaa;
+    }
+    .lang-switch {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+    }
+    #info-icon {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      cursor: pointer;
+      background-color: #00BFFF;
+      padding: 10px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+    #info-box {
+      display: none;
+      position: fixed;
+      bottom: 50px;
+      right: 10px;
+      background: #111;
+      color: white;
+      padding: 15px;
+      max-width: 300px;
+      border: 1px solid #00BFFF;
+    }
+    img.diamond-preview {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lang-switch" onclick="toggleLang()">🌐 IT/EN</div>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Blue_diamond_icon.svg/1024px-Blue_diamond_icon.svg.png" alt="DiamEx Logo">
+    <h1>DiamEx</h1>
+  </header>
+
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('compra')">Compra</button>
+    <button onclick="showSection('vendi')">Vendi</button>
+    <button onclick="showSection('account')">Il mio Account</button>
+  </nav>
+
+  <div id="home" class="content active">
+    <h2>Benvenuto su DiamEx</h2>
+    <p>La prima piattaforma italiana per la compravendita di diamanti certificati.</p>
+    <div>
+      <img src="immagini/diamante1.jpg" class="diamond-preview">
+      <img src="immagini/diamante2.jpg" class="diamond-preview">
+      <img src="immagini/diamante3.jpg" class="diamond-preview">
+      <img src="immagini/diamante4.jpg" class="diamond-preview">
+    </div>
+  </div>
+
+  <div id="compra" class="content">
+    <h2>Compra un diamante</h2>
+    <p>Filtra e trova il diamante perfetto, garantito con certificazione GIA, HRD o IGI.</p>
+    <p>(Questa sezione sarà collegata al database oggi pomeriggio.)</p>
+  </div>
+
+  <div id="vendi" class="content">
+    <h2>Vendi il tuo diamante</h2>
+    <form id="sellForm">
+      <div class="form-group">
+        <label for="desc">Descrizione:</label>
+        <input type="text" id="desc" required>
+      </div>
+      <div class="form-group">
+        <label for="cert">Certificato (GIA/HRD/IGI):</label>
+        <input type="text" id="cert" required>
+      </div>
+      <div class="form-group">
+        <label for="doc">Carica certificato PDF:</label>
+        <input type="file" id="doc" required>
+      </div>
+      <button class="submit-btn" type="submit">Invia</button>
+    </form>
+  </div>
+
+  <div id="account" class="content">
+    <h2>Il mio Account</h2>
+    <div id="auth">
+      <h3>Login</h3>
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPass" placeholder="Password">
+      <button class="submit-btn" onclick="login()">Accedi</button>
+
+      <h3>Registrazione</h3>
+      <input type="email" id="regEmail" placeholder="Email">
+      <input type="password" id="regPass" placeholder="Password">
+      <button class="submit-btn" onclick="register()">Registrati</button>
+    </div>
+    <div id="userPanel" style="display:none;">
+      <p>Benvenuto, <span id="userEmail"></span></p>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div id="info-icon" onclick="toggleInfo()">i</div>
+  <div id="info-box">
+    <strong>Cos'è DiamEx?</strong><br>
+    DiamEx è una piattaforma sicura e trasparente per acquistare e vendere diamanti certificati. Ogni annuncio è verificato. Proteggiamo acquirenti e venditori con garanzie specifiche.
+  </div>
+
+  <footer>
+    Supporto clienti: <a href="mailto:assistenza@diamex.it">assistenza@diamex.it</a><br>
+    In collaborazione con laboratorio certificatore riconosciuto<br><br>
+    © 2025 DiamEx - Tutti i diritti riservati
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function toggleInfo() {
+      const box = document.getElementById('info-box');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleLang() {
+      alert("Sistema multilingua disponibile a breve.");
+    }
+
+    function register() {
+      const email = document.getElementById('regEmail').value;
+      const pass = document.getElementById('regPass').value;
+      if (email && pass) {
+        localStorage.setItem(email, pass);
+        alert("Registrazione completata!");
+      }
+    }
+
+    function login() {
+      const email = document.getElementById('loginEmail').value;
+      const pass = document.getElementById('loginPass').value;
+      const storedPass = localStorage.getItem(email);
+      if (storedPass === pass) {
+        document.getElementById('auth').style.display = 'none';
+        document.getElementById('userPanel').style.display = 'block';
+        document.getElementById('userEmail').textContent = email;
+      } else {
+        alert("Credenziali non valide.");
+      }
+    }
+
+    function logout() {
+      document.getElementById('auth').style.display = 'block';
+      document.getElementById('userPanel').style.display = 'none';
+    }
+
+    document.getElementById('sellForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Annuncio inviato. (Funzionalità completa oggi pomeriggio!)");
+    });
+  </script>
+
+</body>
+</html>
